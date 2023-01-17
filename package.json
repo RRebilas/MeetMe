@@ -3,7 +3,11 @@
   "name": "meet-me",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "backend": "nx serve backend",
+    "frontend": "nx serve frontend",
+    "all": "nx run-many --target=serve --projects=frontend,backend --parallel"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.0.0",
@@ -13,6 +17,7 @@
     "@angular/cli": "~15.0.0",
     "@angular/compiler-cli": "~15.0.0",
     "@angular/language-service": "~15.0.0",
+    "@nestjs/mongoose": "^9.2.1",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@nrwl/angular": "^15.4.5",
@@ -35,6 +40,7 @@
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "~12.2.3",
+    "mongoose": "^6.8.3",
     "nx": "15.4.5",
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
