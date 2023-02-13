@@ -1,6 +1,6 @@
 import { AuthService } from '@meet-me/api/auth/data-access';
 import { Module } from '@nestjs/common';
-import { LocalStrategy } from './strategies';
+import { JwtStrategy, LocalStrategy } from './strategies';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { ApiUsersFeatureModule } from '@meet-me/api/users/feature';
@@ -10,10 +10,10 @@ import { ApiUsersFeatureModule } from '@meet-me/api/users/feature';
     ApiUsersFeatureModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '1h' },
     }),
   ],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
 })
 export class ApiAuthFeatureModule {}

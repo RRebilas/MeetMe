@@ -1,6 +1,6 @@
 import { AuthService } from '@meet-me/api/auth/data-access';
-import { LocalAuthGuard } from '@meet-me/api/auth/feature';
-import { Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard, LocalAuthGuard } from '@meet-me/api/auth/feature';
+import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 
 @Controller()
 export class AppController {
@@ -10,5 +10,11 @@ export class AppController {
   @Post('auth/login')
   async login(@Request() req) {
     return this._authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 }

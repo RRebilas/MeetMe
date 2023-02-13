@@ -1,1 +1,2 @@
-export * from './local-auth.guards';
+export * from './local-auth.guard';
+export * from './jwt-auth.guard';
