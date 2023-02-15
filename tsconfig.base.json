@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@meet-me/api/auth/data-access": [
+        "libs/api/auth/data-access/src/index.ts"
+      ],
+      "@meet-me/api/auth/feature": ["libs/api/auth/feature/src/index.ts"],
+      "@meet-me/api/core/feature": ["libs/api/core/feature/src/index.ts"],
+      "@meet-me/api/users/data-access": [
+        "libs/api/users/data-access/src/index.ts"
+      ],
+      "@meet-me/api/users/feature": ["libs/api/users/feature/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
