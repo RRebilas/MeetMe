@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-
-// Add env variables here
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -12,4 +10,4 @@ import { ConfigModule } from '@nestjs/config';
     ),
   ],
 })
-export class ApiCoreFeatureModule {}
+export class ConfigurationModule {}
