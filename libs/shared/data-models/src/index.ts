@@ -1,2 +1,1 @@
-export * from './lib/shared-data-models.module';
-export * from './lib/models/user.model';
+export * from './lib/dto/User.dto';

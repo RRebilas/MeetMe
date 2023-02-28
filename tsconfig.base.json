@@ -24,6 +24,7 @@
         "libs/api/users/data-access/src/index.ts"
       ],
       "@meet-me/api/users/feature": ["libs/api/users/feature/src/index.ts"],
+      "@meet-me/data-models": ["libs/data-models/src/index.ts"],
       "@meet-me/shared/data-models": ["libs/shared/data-models/src/index.ts"]
     }
   },

@@ -8,7 +8,7 @@ export class User {
   @Prop({ required: true, index: { unique: true } })
   username: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, minlength: 8, maxlength: 64 })
   password: string;
 }
 
