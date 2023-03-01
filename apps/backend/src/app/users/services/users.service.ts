@@ -18,4 +18,8 @@ export class UsersService {
   async findAll(): Promise<User[]> {
     return this._userModel.find();
   }
+
+  async findOne(query: Partial<User>): Promise<User> {
+    return this._userModel.findOne(query);
+  }
 }
