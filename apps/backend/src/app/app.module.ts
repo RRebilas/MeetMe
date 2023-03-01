@@ -1,11 +1,7 @@
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { ApiCoreFeatureModule } from '@meet-me/api/core/feature';
-import { ApiAuthFeatureModule } from '@meet-me/api/auth/feature';
+import { ConfigurationModule } from '../config/configuration.module';
 
 @Module({
-  imports: [ApiCoreFeatureModule, ApiAuthFeatureModule],
-  controllers: [AppController],
+  imports: [ConfigurationModule],
 })
 export class AppModule {}
