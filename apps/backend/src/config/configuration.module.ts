@@ -1,12 +1,25 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { databaseUri } from './database.config';
+import databaseConfig from './database.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(databaseUri),
+    ConfigModule.forRoot({ isGlobal: true, load: [databaseConfig] }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => {
+        const user = configService.get('database.user');
+        const password = configService.get('database.password');
+        const port = configService.get('database.port');
+        const databaseName = configService.get('database.database_name');
+
+        return {
+          uri: `mongodb://${user}:${password}@localhost:${port}/${databaseName}`,
+        };
+      },
+      inject: [ConfigService],
+    }),
   ],
 })
 export class ConfigurationModule {}
