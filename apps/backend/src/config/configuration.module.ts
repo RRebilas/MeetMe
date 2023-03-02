@@ -1,13 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import authConfig from './auth.config';
 import databaseConfig from './database.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, load: [databaseConfig] }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [databaseConfig, authConfig],
+    }),
     MongooseModule.forRootAsync({
-      imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         const user = configService.get('database.user');
         const password = configService.get('database.password');

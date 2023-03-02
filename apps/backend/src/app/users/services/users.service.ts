@@ -15,11 +15,11 @@ export class UsersService {
     return createdUser.save();
   }
 
-  async findAll(): Promise<User[]> {
+  async findAll(): Promise<UserDocument[]> {
     return this._userModel.find();
   }
 
-  async findOne(query: Partial<User>): Promise<User> {
+  async findOne(query: Partial<User>): Promise<UserDocument> {
     return this._userModel.findOne(query);
   }
 }
